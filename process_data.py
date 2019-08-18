@@ -80,7 +80,7 @@ df.to_csv('dataset_exploded_topics.csv')
 
 
 # Prepare and save DataFrame for recommendation task
-df.drop(labels = ['topics', 'views', 'upload_date', 'transcript', 'speaker', 'description'], axis = 1, inplace = True)
+df.drop(labels = ['topics', 'views', 'log_views', 'upload_date', 'transcript', 'speaker', 'description'], axis = 1, inplace = True)
 df.to_csv('recommend_dataset.csv')
 
 

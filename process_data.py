@@ -25,7 +25,7 @@ unique_topics = set()
 
 for talk_data in data:
     title = str([x for x in talk_data.keys()][0])
-    titles.append(title)
+    titles.append(title.lower())
     metadata = talk_data[title]
     upload_dates.append(str(metadata['posted_date']))
     links.append(str(metadata['talk_link']))
@@ -37,11 +37,11 @@ for talk_data in data:
     for section in transcript_raw:
         transcript += section
         transcript += ' '
-    transcripts.append(str(transcript))
+    transcripts.append(str(transcript).lower())
     views.append(int(metadata['view_count']))
     durations.append(float(metadata['duration'])/60)
     speakers.append(str(metadata['speaker']))
-    descriptions.append(str(metadata['description']))
+    descriptions.append(str(metadata['description']).lower())
 
 # Create and populate DataFrame with talk metadata
 df = pd.DataFrame()
@@ -77,7 +77,6 @@ for i, topic in enumerate(topics_list):
 
 # Save DataFrame for later use
 df.to_csv('dataset_exploded_topics.csv')
-
 
 # Prepare and save DataFrame for recommendation task
 df.drop(labels = ['topics', 'views', 'log_views', 'upload_date', 'transcript', 'speaker', 'description'], axis = 1, inplace = True)

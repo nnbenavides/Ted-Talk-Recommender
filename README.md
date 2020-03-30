@@ -1,4 +1,4 @@
-# Ted-Talk-Recommender
+# Ted Talk Recommender
 Web Scraper + Recommendation Engine for TED Talks. The recommendation system uses k-nearest neighbors (KNN) to identify similar talks to a provided one and recommends the most similar talks to the user. Because the data lacked user ratings for various talks, more complex collaborative filtering methods were not applicable.
 
 ## Required Packages/Software
